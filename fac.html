@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>JavaScript Multiplication Table and Sum</title>
+</head>
+<body>
+<h3>Multiplication Table</h3>
+<input type="number" id="numberForTable" placeholder="Enter a number">
+<button onclick="generateMultiplicationTable()">Generate Table</button>
+<pre id="tableResult"></pre>
+<h3>Sum of Numbers</h3>
+<input type="number" id="countForSum" placeholder="Enter count of numbers">
+<button onclick="calculateSum()">Calculate Sum</button>
+<p id="sumResult"></p>
+<script>
+function generateMultiplicationTable() {
+const n = parseInt(document.getElementById("numberForTable").value);
+if (isNaN(n)) {
+alert("Please enter a valid number.");
+return;
+}
+let table = `Multiplication Table for ${n}:\n`;
+for (let i = 1; i <= 10; i++) {
+table += `${n} x ${i} = ${n * i}\n`;
+}
+document.getElementById("tableResult").innerText = table;
+}
+function calculateSum() {
+const count = parseInt(document.getElementById("countForSum").value);
+if (isNaN(count) || count <= 0) {
+alert("Please enter a valid positive count.");
+return;
+}
+let sum = 0;
+for (let i = 0; i < count; i++) {
+const num = parseInt(prompt(`Enter number ${i + 1}:`));
+if (isNaN(num)) {
+alert("Invalid input. Skipping this number.");
+continue;
+}
+sum += num;
+}
+document.getElementById("sumResult").innerText = `The total sum is: ${sum}`;
+}
+</script>
+</body>
+</html>
